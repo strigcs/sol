@@ -4,19 +4,15 @@ const { describe } = require('mocha');
 const Web3 = require('web3')
 const web3 = new Web3(ganache.provider());
 
-class Car {
-    park() {
-        return 'stopped';
-    }
+beforeEach (() => {
+    web3.eth.getAccounts()
+        .then(fetchedAccounts => {
+            console.log(fetchedAccounts)
+        });
 
-    drive() {
-        return 'vroom';
-    }
-}
+});
 
-describe('Car', () => {
-    it('can park', () => {
-        const car = new Car();
-        assert.equal(car.park(), 'stopped');
-    })
-})
+describe('Inbox', () => {
+    it('deploys a contract', () => {
+    });
+});
